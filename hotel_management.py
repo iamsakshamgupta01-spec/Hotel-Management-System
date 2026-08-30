@@ -17,8 +17,6 @@ import datetime
 import os
 
 DB_NAME = "hotel.db"
-
-
 # ---------------------------------------------------------------------------
 # DATABASE SETUP
 # ---------------------------------------------------------------------------
@@ -26,12 +24,9 @@ def get_connection():
     conn = sqlite3.connect(DB_NAME)
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
-
-
 def init_db():
     conn = get_connection()
     cur = conn.cursor()
-
     cur.execute("""
         CREATE TABLE IF NOT EXISTS rooms (
             room_no INTEGER PRIMARY KEY,
@@ -403,7 +398,6 @@ def main_menu():
     while True:
         print(menu)
         choice = input("Enter your choice: ").strip()
-
         if choice == "1":
             add_room()
         elif choice == "2":
